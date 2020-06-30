@@ -7,6 +7,7 @@ COPY . .
 RUN yarn run build
 
 # production stage
+RUN echo 'Production stage started'
 FROM nginx:stable-alpine as production-stage
 COPY --from=build-stage /dist /usr/share/nginx/html
 EXPOSE 80
